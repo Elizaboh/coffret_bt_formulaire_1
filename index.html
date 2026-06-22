@@ -6,174 +6,191 @@
   <title>Coffret BT — Demande d'implantation</title>
   <style>
     :root {
-      --navy:   #1A2B4A;
-      --blue:   #2155A3;
-      --sky:    #E8EEF8;
-      --accent: #F5A623;
-      --green:  #1D7A4E;
-      --red:    #C0392B;
-      --mid:    #5A6A82;
-      --border: #C8D3E5;
-      --bg:     #F2F5FA;
-      --white:  #FFFFFF;
-      --text:   #1A2234;
-      --radius: 6px;
+      --yellow:      #F6D424;
+      --yellow-light:#FBEEA7;
+      --grey-dark:   #707171;
+      --grey-light:  #C6C6C6;
+      --white:       #FFFFFF;
+      --black:       #000000;
+      --orange:      #F29400;
+      --bg:          #F5F5F5;
+      --radius:      5px;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--text); font-size: 14px; line-height: 1.55; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--black); font-size: 14px; line-height: 1.55; }
 
-    /* Header */
-    header { background: var(--navy); color: var(--white); padding: 0; display: flex; align-items: stretch; }
-    .header-accent { width: 8px; background: var(--accent); flex-shrink: 0; }
-    .header-inner { padding: 24px 36px; flex: 1; }
-    .header-tag { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 6px; }
-    header h1 { font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
-    header p { font-size: 13px; color: #A8BDD4; margin-top: 6px; max-width: 620px; }
-    .badge-public { display: inline-flex; align-items: center; gap: 6px; background: rgba(245,166,35,.15); border: 1px solid rgba(245,166,35,.4); color: var(--accent); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; margin-top: 12px; text-transform: uppercase; letter-spacing: .08em; }
+    /* ── Header ── */
+    header { background: var(--black); color: var(--white); display: flex; align-items: stretch; }
+    .header-stripe { width: 8px; background: var(--yellow); flex-shrink: 0; }
+    .header-inner { padding: 22px 32px; flex: 1; }
+    .header-tag { font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--yellow); font-weight: 700; margin-bottom: 5px; }
+    header h1 { font-size: 20px; font-weight: 700; }
+    header p { font-size: 12.5px; color: var(--grey-light); margin-top: 6px; max-width: 640px; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(246,212,36,.15); border: 1px solid rgba(246,212,36,.45); color: var(--yellow); font-size: 10.5px; font-weight: 700; padding: 3px 11px; border-radius: 20px; margin-top: 10px; text-transform: uppercase; letter-spacing: .08em; }
 
-    /* Layout */
-    main { max-width: 960px; margin: 32px auto; padding: 0 20px 60px; }
+    /* ── Layout ── */
+    main { max-width: 980px; margin: 28px auto; padding: 0 18px 60px; }
 
-    /* Blocked overlay */
+    /* ── Banner ── */
     #form-blocked-banner {
-      display: none;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #7B1C1C;
-      color: #fff;
-      padding: 14px 24px;
-      border-radius: var(--radius);
-      margin-bottom: 20px;
-      font-size: 13.5px;
-      font-weight: 600;
-      border-left: 6px solid #E53935;
-      align-items: center;
-      gap: 12px;
+      display: none; position: sticky; top: 0; z-index: 200;
+      background: var(--orange); color: var(--white);
+      padding: 13px 20px; border-radius: var(--radius);
+      margin-bottom: 18px; font-size: 13px; font-weight: 700;
+      align-items: flex-start; gap: 12px;
+      border-left: 6px solid var(--black);
     }
     #form-blocked-banner.visible { display: flex; }
-    #form-blocked-banner svg { flex-shrink: 0; }
+    #form-blocked-banner .ban-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    #form-blocked-banner p { font-weight: 400; line-height: 1.45; }
+    #form-blocked-banner strong { font-weight: 700; }
 
-    /* Form lock */
+    /* ── Form lock ── */
     #form-body.locked {
-      opacity: .38;
-      pointer-events: none;
-      filter: grayscale(.5);
-      user-select: none;
+      opacity: .3; pointer-events: none; filter: grayscale(1); user-select: none;
     }
 
-    /* Sections */
-    .section { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 20px; overflow: hidden; }
-    .section-head { background: var(--navy); color: var(--white); padding: 11px 20px; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
-    .section-head .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
-    .section-body { padding: 20px 24px 24px; }
+    /* ── Sections ── */
+    .section { background: var(--white); border: 1px solid var(--grey-light); border-radius: var(--radius); margin-bottom: 18px; overflow: hidden; }
+    .section-head { background: var(--black); color: var(--white); padding: 10px 20px; font-size: 11.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; display: flex; align-items: center; gap: 8px; }
+    .section-head .dot { width: 7px; height: 7px; background: var(--yellow); border-radius: 50%; flex-shrink: 0; }
+    .section-body { padding: 20px 22px 24px; }
 
-    /* Grids */
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
-    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px 24px; }
+    /* ── Grids ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+    .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px 22px; }
     .span-2 { grid-column: span 2; }
     .span-3 { grid-column: span 3; }
 
-    /* Fields */
-    .field { display: flex; flex-direction: column; gap: 5px; }
-    label { font-size: 11.5px; font-weight: 600; color: var(--mid); text-transform: uppercase; letter-spacing: .05em; }
-    label .req { color: var(--red); margin-left: 2px; }
+    /* ── Fields ── */
+    .field { display: flex; flex-direction: column; gap: 4px; }
+    .field > label { font-size: 11px; font-weight: 700; color: var(--grey-dark); text-transform: uppercase; letter-spacing: .06em; }
+    .req { color: var(--orange); margin-left: 2px; }
     input[type="text"], input[type="date"], input[type="email"], input[type="tel"], textarea, select {
-      border: 1px solid var(--border); border-radius: var(--radius); padding: 9px 12px; font-size: 13.5px; color: var(--text); background: var(--bg); transition: border-color .15s, box-shadow .15s; font-family: inherit; width: 100%;
+      border: 1px solid var(--grey-light); border-radius: var(--radius);
+      padding: 8px 11px; font-size: 13.5px; color: var(--black);
+      background: var(--white); font-family: inherit; width: 100%;
+      transition: border-color .14s, box-shadow .14s;
     }
-    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(33,85,163,.12); background: var(--white); }
-    textarea { resize: vertical; min-height: 68px; }
-    .field-error { font-size: 11.5px; color: var(--red); font-weight: 600; display: none; margin-top: 2px; }
-    .field.invalid input, .field.invalid textarea, .field.invalid select { border-color: var(--red); background: #FFF5F5; }
+    input:focus, textarea:focus, select:focus {
+      outline: none; border-color: var(--orange);
+      box-shadow: 0 0 0 3px rgba(242,148,0,.15);
+    }
+    textarea { resize: vertical; min-height: 64px; }
+    select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23707171' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; cursor: pointer; }
+
+    .field-error { font-size: 11px; color: var(--orange); font-weight: 700; display: none; margin-top: 1px; }
+    .field.invalid input, .field.invalid textarea, .field.invalid select { border-color: var(--orange); background: #FFF8EC; }
     .field.invalid .field-error { display: block; }
 
-    /* Radio / Checkbox */
-    .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+    /* ── Radio / Checkbox pill groups ── */
+    .radio-group, .check-group { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px; }
     .radio-group label, .check-group label {
-      display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 400; color: var(--text); text-transform: none; letter-spacing: 0; cursor: pointer; background: var(--sky); border: 1px solid var(--border); border-radius: var(--radius); padding: 6px 12px; transition: background .12s, border-color .12s; user-select: none;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 400; color: var(--black);
+      text-transform: none; letter-spacing: 0;
+      cursor: pointer; background: var(--bg);
+      border: 1px solid var(--grey-light); border-radius: var(--radius);
+      padding: 6px 13px; transition: background .12s, border-color .12s;
+      user-select: none;
     }
-    .radio-group input, .check-group input { accent-color: var(--blue); }
-    .radio-group label:has(input:checked), .check-group label:has(input:checked) { background: var(--blue); border-color: var(--blue); color: var(--white); }
-    .radio-group label:has(input:checked) input, .check-group label:has(input:checked) input { accent-color: var(--white); }
-    .radio-group.invalid-group { outline: 2px solid var(--red); border-radius: var(--radius); outline-offset: 2px; }
-
-    /* Criteria */
-    .criteria-list { display: flex; flex-direction: column; gap: 16px; }
-    .criteria-item {
-      background: var(--sky); border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; overflow: hidden;
+    .radio-group input, .check-group input { accent-color: var(--orange); }
+    .radio-group label:has(input:checked), .check-group label:has(input:checked) {
+      background: var(--yellow); border-color: var(--yellow); color: var(--black); font-weight: 700;
     }
-    .criteria-top { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 16px; padding: 12px 16px; }
-    .criteria-top p { line-height: 1.45; }
-    .criteria-top .radio-group { flex-direction: row; flex-shrink: 0; }
-    .criteria-justify { padding: 0 16px 12px; }
-    .criteria-justify label { font-size: 11px; color: var(--mid); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; display: block; }
-    .criteria-justify textarea { font-size: 12.5px; min-height: 52px; background: var(--white); }
+    .radio-group.invalid-group, .check-group.invalid-group { outline: 2px solid var(--orange); border-radius: var(--radius); outline-offset: 2px; }
 
-    /* PDF upload zone */
+    /* ── Domaine public row ── */
+    .dp-row { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .dp-label { font-size: 11px; font-weight: 700; color: var(--grey-dark); text-transform: uppercase; letter-spacing: .06em; flex-shrink: 0; }
+
+    /* ── Criteria ── */
+    .criteria-list { display: flex; flex-direction: column; gap: 14px; }
+    .criteria-item { background: var(--yellow-light); border: 1px solid var(--grey-light); border-radius: var(--radius); overflow: hidden; }
+    .criteria-top { display: grid; grid-template-columns: 1fr auto; align-items: start; gap: 16px; padding: 12px 16px 10px; }
+    .criteria-top p { font-size: 13px; line-height: 1.5; }
+    .criteria-top .tri-group { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+    .tri-group label {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 12.5px; font-weight: 400; color: var(--black);
+      cursor: pointer; background: var(--white);
+      border: 1px solid var(--grey-light); border-radius: var(--radius);
+      padding: 5px 11px; transition: background .12s; user-select: none;
+      text-transform: none; letter-spacing: 0; white-space: nowrap;
+    }
+    .tri-group input[type="radio"] { accent-color: var(--orange); }
+    .tri-group label:has(input:checked) { background: var(--yellow); border-color: var(--yellow); font-weight: 700; }
+    .tri-group.invalid-group { outline: 2px solid var(--orange); border-radius: var(--radius); outline-offset: 2px; }
+    .criteria-bottom { padding: 0 16px 12px; }
+    .criteria-bottom label { font-size: 10.5px; font-weight: 700; color: var(--grey-dark); text-transform: uppercase; letter-spacing: .06em; display: block; margin-bottom: 4px; }
+    .criteria-bottom textarea { font-size: 12.5px; min-height: 50px; }
+    .criteria-bottom .field-error { display: none; font-size: 11px; color: var(--orange); font-weight: 700; margin-top: 3px; }
+
+    /* ── PDF upload ── */
     .upload-zone {
-      border: 2px dashed var(--border); border-radius: var(--radius); padding: 24px 20px; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; background: var(--bg); position: relative;
+      border: 2px dashed var(--grey-light); border-radius: var(--radius);
+      padding: 20px 16px; text-align: center; cursor: pointer;
+      transition: border-color .15s, background .15s; background: var(--bg); position: relative;
     }
-    .upload-zone:hover, .upload-zone.drag-over { border-color: var(--blue); background: var(--sky); }
+    .upload-zone:hover, .upload-zone.drag-over { border-color: var(--orange); background: var(--yellow-light); }
     .upload-zone input[type="file"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
-    .upload-zone .upload-icon { font-size: 28px; margin-bottom: 6px; }
-    .upload-zone .upload-text { font-size: 13px; color: var(--mid); font-weight: 600; }
-    .upload-zone .upload-sub { font-size: 11.5px; color: #9AA8BE; margin-top: 3px; }
-    .file-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
-    .file-item {
-      display: flex; align-items: center; gap: 10px; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 8px 12px; font-size: 12.5px;
-    }
-    .file-item .file-icon { font-size: 18px; flex-shrink: 0; }
-    .file-item .file-name { flex: 1; font-weight: 600; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .file-item .file-size { font-size: 11px; color: var(--mid); flex-shrink: 0; }
-    .file-item .file-remove { background: none; border: none; cursor: pointer; color: var(--red); font-size: 16px; padding: 0 4px; flex-shrink: 0; line-height: 1; }
-    .file-item .file-remove:hover { color: #7B1C1C; }
+    .upload-icon { font-size: 26px; margin-bottom: 5px; }
+    .upload-text { font-size: 13px; color: var(--grey-dark); font-weight: 700; }
+    .upload-sub { font-size: 11px; color: var(--grey-light); margin-top: 2px; }
+    .file-list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+    .file-item { display: flex; align-items: center; gap: 8px; background: var(--white); border: 1px solid var(--grey-light); border-radius: var(--radius); padding: 7px 11px; font-size: 12.5px; }
+    .file-item .fi-icon { font-size: 16px; flex-shrink: 0; }
+    .file-item .fi-name { flex: 1; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .file-item .fi-size { font-size: 11px; color: var(--grey-dark); flex-shrink: 0; }
+    .file-item .fi-rm { background: none; border: none; cursor: pointer; color: var(--orange); font-size: 15px; padding: 0 3px; flex-shrink: 0; }
 
-    /* Decision */
-    .decision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 4px; }
-    .decision-card { border: 2px solid var(--border); border-radius: var(--radius); padding: 14px 16px; cursor: pointer; transition: border-color .15s, background .15s; display: flex; align-items: flex-start; gap: 10px; }
-    .decision-card input[type="radio"] { margin-top: 2px; accent-color: var(--blue); flex-shrink: 0; }
-    .decision-card:has(input:checked) { border-color: var(--blue); background: var(--sky); }
+    /* ── Decision ── */
+    .decision-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 4px; }
+    .decision-card { border: 2px solid var(--grey-light); border-radius: var(--radius); padding: 13px 15px; cursor: pointer; transition: border-color .15s, background .15s; display: flex; align-items: flex-start; gap: 9px; }
+    .decision-card input[type="radio"] { margin-top: 2px; accent-color: var(--orange); flex-shrink: 0; }
+    .decision-card .dc-label { font-size: 12.5px; font-weight: 600; line-height: 1.4; text-transform: none; letter-spacing: 0; color: var(--black); }
+    .decision-card:has(input:checked) { border-color: var(--orange); background: var(--yellow-light); }
+    .dc-auth { color: #2a6e2a; }
+    .dc-cond { color: var(--orange); }
+    .dc-ref  { color: #c0392b; }
 
-    /* Divider */
-    .divider { border: none; border-top: 1px dashed var(--border); margin: 16px 0; }
+    /* ── Misc ── */
+    .divider { border: none; border-top: 1px dashed var(--grey-light); margin: 14px 0; }
+    .info-note { font-size: 12px; color: var(--grey-dark); padding: 8px 12px; background: var(--yellow-light); border-left: 4px solid var(--yellow); border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 14px; }
 
-    /* Info note */
-    .info-note { font-size: 12px; color: var(--mid); padding: 8px 12px; background: var(--sky); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; margin-bottom: 16px; }
-
-    /* Footer */
-    .form-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px; }
-    button[type="reset"] { padding: 11px 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--white); color: var(--mid); font-size: 13px; font-weight: 600; cursor: pointer; transition: background .12s; }
-    button[type="reset"]:hover { background: var(--sky); }
-    button[type="submit"] { padding: 11px 32px; border: none; border-radius: var(--radius); background: var(--blue); color: var(--white); font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: .03em; transition: background .12s, transform .1s; }
-    button[type="submit"]:hover { background: var(--navy); }
-    button[type="submit"]:active { transform: scale(.98); }
+    /* ── Footer ── */
+    .form-footer { display: flex; justify-content: flex-end; gap: 12px; margin-top: 20px; }
+    button[type="reset"] { padding: 10px 22px; border: 1px solid var(--grey-light); border-radius: var(--radius); background: var(--white); color: var(--grey-dark); font-size: 13px; font-weight: 600; cursor: pointer; }
+    button[type="reset"]:hover { background: var(--bg); }
+    button[type="submit"] { padding: 10px 30px; border: none; border-radius: var(--radius); background: var(--orange); color: var(--white); font-size: 13px; font-weight: 700; cursor: pointer; letter-spacing: .03em; transition: background .12s; }
+    button[type="submit"]:hover { background: var(--black); }
 
     @media (max-width: 640px) {
       .grid-2, .grid-3 { grid-template-columns: 1fr; }
       .span-2, .span-3 { grid-column: span 1; }
       .decision-grid { grid-template-columns: 1fr; }
       .criteria-top { grid-template-columns: 1fr; }
+      .tri-group { flex-direction: row; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="header-accent"></div>
+  <div class="header-stripe"></div>
   <div class="header-inner">
     <div class="header-tag">SIG — Services Industriels de Genève</div>
     <h1>Demande d'implantation — Coffret Basse Tension</h1>
-    <p>Les coffrets BT sont placés en aval de la station de transformation MT/BT. Ils contiennent les organes de coupure et de protection permettant une coupure sélective, localisée et rapide lors d'un défaut ou d'une coupure planifiée.</p>
-    <div class="badge-public">⚡ Intérêt public</div>
+    <p>Les coffrets BT sont placés en aval de la station de transformation MT/BT et en amont des consommateurs. Ils contiennent les organes de coupure et de protection permettant une exploitation optimale du réseau.</p>
+    <div class="badge">⚡ Intérêt public</div>
   </div>
 </header>
 
 <main>
 
-  <!-- Blocked banner -->
   <div id="form-blocked-banner" role="alert">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-    <span>Ce formulaire concerne uniquement les demandes d'implantation sur le <strong>domaine public de la Ville de Genève</strong>. Les installations situées hors domaine public ne peuvent pas être traitées via ce formulaire.</span>
+    <div class="ban-icon">⛔</div>
+    <p>Ce formulaire est réservé aux demandes d'implantation sur le <strong>domaine public de la Ville de Genève</strong>. Les installations situées sur domaine privé ne peuvent pas être traitées via ce formulaire. Veuillez contacter votre interlocuteur SIG.</p>
   </div>
 
 <form id="coffretForm" novalidate>
@@ -183,16 +200,31 @@
   <div class="section">
     <div class="section-head"><span class="dot"></span>Informations administratives</div>
     <div class="section-body">
+
+      <!-- Domaine public — top priority -->
+      <div style="margin-bottom:16px;">
+        <div class="dp-row">
+          <span class="dp-label">Domaine public <span class="req">*</span></span>
+          <div class="radio-group" id="dp-group">
+            <label><input type="radio" name="domaine_public" value="oui"/> Oui — domaine public</label>
+            <label><input type="radio" name="domaine_public" value="non"/> Non — domaine privé</label>
+          </div>
+        </div>
+        <div class="field-error" id="dp-error" style="margin-top:4px;">Veuillez sélectionner une option.</div>
+      </div>
+
+      <hr class="divider"/>
+
       <div class="grid-3">
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>N° de dossier SIG <span class="req">*</span></label>
           <input type="text" name="dossier_num" placeholder="Ex. SIG-2026-0001"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Date de dépôt <span class="req">*</span></label>
           <input type="date" name="date_depot"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
         <div class="field">
           <label>Échéance (dépôt + 1 mois)</label>
@@ -200,34 +232,23 @@
         </div>
         <div class="field">
           <label>Lié à (N° dossier)</label>
-          <input type="text" name="lie_a" placeholder="N° dossier lié"/>
+          <input type="text" name="lie_a" placeholder="N° dossier associé"/>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Chargé de projet <span class="req">*</span></label>
           <input type="text" name="charge_projet" placeholder="Prénom Nom"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Téléphone <span class="req">*</span></label>
           <input type="tel" name="telephone" placeholder="+41 22 xxx xx xx"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field span-2" data-required>
+        <div class="field span-2" data-req>
           <label>Email <span class="req">*</span></label>
           <input type="email" name="email" placeholder="prenom.nom@example.ch"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-      </div>
-
-      <hr class="divider"/>
-
-      <div class="field" data-required-radio="domaine_public">
-        <label>Domaine public <span class="req">*</span></label>
-        <div class="radio-group" id="domaine-public-group">
-          <label><input type="radio" name="domaine_public" value="oui"/> Oui</label>
-          <label><input type="radio" name="domaine_public" value="non"/> Non</label>
-        </div>
-        <span class="field-error" id="domaine-public-error">Veuillez sélectionner une option.</span>
       </div>
     </div>
   </div>
@@ -237,7 +258,7 @@
     <div class="section-head"><span class="dot"></span>Localisation</div>
     <div class="section-body">
       <div class="grid-2">
-        <div class="field span-2" data-required-check="emplacement">
+        <div class="field span-2" data-req-check="emplacement">
           <label>Emplacement <span class="req">*</span></label>
           <div class="check-group" id="emplacement-group">
             <label><input type="checkbox" name="emplacement" value="trottoir"/> Sur trottoir SIG</label>
@@ -247,20 +268,20 @@
           </div>
           <span class="field-error" id="emplacement-error">Veuillez sélectionner au moins un emplacement.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Adresse / Lieu-dit <span class="req">*</span></label>
           <input type="text" name="adresse" placeholder="Rue, numéro, lieu-dit"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>N° de parcelle <span class="req">*</span></label>
           <input type="text" name="parcelle" placeholder="Ex. 1234"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field span-2" data-required>
+        <div class="field span-2" data-req>
           <label>Commune cadastrale <span class="req">*</span></label>
           <input type="text" name="commune" placeholder="Commune"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
       </div>
     </div>
@@ -271,35 +292,36 @@
     <div class="section-head"><span class="dot"></span>Description de l'installation</div>
     <div class="section-body">
       <div class="grid-2">
-        <div class="field" data-required-radio="operation">
+        <div class="field" data-req>
           <label>Nature de l'opération <span class="req">*</span></label>
-          <div class="radio-group">
-            <label><input type="radio" name="operation" value="pose"/> Pose SIG</label>
-            <label><input type="radio" name="operation" value="deplacement"/> Déplacement</label>
-            <label><input type="radio" name="operation" value="remplacement"/> Remplacement</label>
-          </div>
-          <span class="field-error">Veuillez choisir une option.</span>
+          <select name="operation">
+            <option value="">— Choisir —</option>
+            <option value="pose">Pose</option>
+            <option value="depose">Dépose</option>
+            <option value="deplacement">Déplacement</option>
+            <option value="remplacement">Remplacement</option>
+          </select>
+          <span class="field-error">Veuillez choisir une opération.</span>
         </div>
-        <div class="field" data-required-radio="dimensions">
+        <div class="field" data-req>
           <label>Dimensions <span class="req">*</span></label>
-          <div class="radio-group">
-            <label><input type="radio" name="dimensions" value="petit"/> Petit 120×75×47 cm</label>
-            <label><input type="radio" name="dimensions" value="moyen"/> Moyen 120×114×47 cm</label>
-          </div>
+          <select name="dimensions">
+            <option value="">— Choisir —</option>
+            <option value="petit">Petit — 120 × 75 × 47 cm</option>
+            <option value="moyen">Moyen — 120 × 114 × 47 cm</option>
+          </select>
           <span class="field-error">Veuillez choisir une dimension.</span>
         </div>
-        <div class="field span-2" data-required>
+        <div class="field span-2" data-req>
           <label>Description des travaux <span class="req">*</span></label>
           <textarea name="description_travaux" rows="3" placeholder="Décrire les travaux prévus…"></textarea>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Finition / Couleur <span class="req">*</span></label>
           <input type="text" name="finition" placeholder="Ex. RAL 7035 gris clair"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-
-        <!-- PDF upload -->
         <div class="field">
           <label>Fiches techniques (PDF)</label>
           <div class="upload-zone" id="upload-zone">
@@ -318,171 +340,182 @@
   <div class="section">
     <div class="section-head"><span class="dot"></span>Critères de pose</div>
     <div class="section-body">
-      <div class="info-note">Chaque critère est <strong>obligatoire</strong>. Sélectionnez Oui ou Non et justifiez votre réponse.</div>
-      <div class="criteria-list" id="criteria-list">
+      <div class="info-note">Chaque critère est <strong>obligatoire</strong>. Sélectionnez Oui, Non ou Ne s'applique pas, et ajoutez un commentaire si nécessaire.</div>
+      <div class="criteria-list">
 
-        <div class="criteria-item" data-criteria="c1">
+        <div class="criteria-item" data-crit="c1">
           <div class="criteria-top">
-            <p><strong>Vérification cadastrale / parcellaire</strong> avec SEP au besoin, notamment sous marquises et avant-toits.</p>
-            <div class="radio-group">
-              <label><input type="radio" name="c1" value="oui"/> Oui SIG</label>
+            <p>La vérification cadastrale et parcellaire a été faite en particulier pour les marquises et les avant-toits.</p>
+            <div class="tri-group" id="c1-grp">
+              <label><input type="radio" name="c1" value="oui"/> Oui</label>
               <label><input type="radio" name="c1" value="non"/> Non</label>
+              <label><input type="radio" name="c1" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c1_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c1_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c2">
+        <div class="criteria-item" data-crit="c2">
           <div class="criteria-top">
-            <p><strong>Domaine public libre</strong> — Pas de terrasses, commerces, étals, stands politiques, etc.</p>
-            <div class="radio-group">
+            <p>Le domaine public est libre et disponible — ne s'y trouvent pas terrasses, commerces, étals, stands politiques.</p>
+            <div class="tri-group" id="c2-grp">
               <label><input type="radio" name="c2" value="oui"/> Oui</label>
               <label><input type="radio" name="c2" value="non"/> Non</label>
+              <label><input type="radio" name="c2" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c2_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c2_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c3">
+        <div class="criteria-item" data-crit="c3">
           <div class="criteria-top">
-            <p><strong>1,50 m minimum</strong> entre le coffret et la bordure de trottoir pour passage fluide des piétons, PMR et véhicules de voirie.</p>
-            <div class="radio-group">
+            <p>Une distance minimale d'un mètre cinquante (1,50 m) est assurée entre le coffret et la bordure de trottoir pour le passage fluide des piétons, des PMR et des véhicules de voirie.</p>
+            <div class="tri-group" id="c3-grp">
               <label><input type="radio" name="c3" value="oui"/> Oui</label>
               <label><input type="radio" name="c3" value="non"/> Non</label>
+              <label><input type="radio" name="c3" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c3_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c3_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c4">
+        <div class="criteria-item" data-crit="c4">
           <div class="criteria-top">
-            <p><strong>30 cm minimum</strong> si en bordure de trottoir pour l'ouverture des portes de véhicules en stationnement.</p>
-            <div class="radio-group">
+            <p>Une distance de trente centimètres (0,30 m) minimum est observée entre la bordure de trottoir et le coffret pour permettre l'ouverture et l'accès aux véhicules stationnés.</p>
+            <div class="tri-group" id="c4-grp">
               <label><input type="radio" name="c4" value="oui"/> Oui</label>
               <label><input type="radio" name="c4" value="non"/> Non</label>
+              <label><input type="radio" name="c4" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c4_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c4_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c5">
+        <div class="criteria-item" data-crit="c5">
           <div class="criteria-top">
-            <p><strong>50 cm minimum</strong> avec autres éléments de mobilier (poubelles, boîtes postales, bancs, parcomètres, potelets, signalisation, feux…).</p>
-            <div class="radio-group">
+            <p>Une distance de cinquante centimètres (0,50 m) est observée entre le coffret et tout autre élément de mobilier urbain adjacent (arrêt de transport en commun, poubelles, boîtes postales, bancs, parcomètres, potelets, signalisation, feux, etc.).</p>
+            <div class="tri-group" id="c5-grp">
               <label><input type="radio" name="c5" value="oui"/> Oui</label>
               <label><input type="radio" name="c5" value="non"/> Non</label>
+              <label><input type="radio" name="c5" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c5_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c5_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c6">
+        <div class="criteria-item" data-crit="c6">
           <div class="criteria-top">
-            <p><strong>Vitrines, entrées d'immeubles, arcades</strong> respectées.</p>
-            <div class="radio-group">
+            <p>La pose du coffret n'entrave pas les vitrines, les entrées d'immeubles ou les arcades.</p>
+            <div class="tri-group" id="c6-grp">
               <label><input type="radio" name="c6" value="oui"/> Oui</label>
               <label><input type="radio" name="c6" value="non"/> Non</label>
+              <label><input type="radio" name="c6" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c6_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c6_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c7">
+        <div class="criteria-item" data-crit="c7">
           <div class="criteria-top">
-            <p><strong>Pas sous fenêtres</strong> de rez-de-chaussée ou 1er étage accessibles depuis le coffret.</p>
-            <div class="radio-group">
+            <p>Le coffret n'est pas posé directement sous une fenêtre de rez-de-chaussée ou de premier étage, de ce fait directement accessible depuis le coffret.</p>
+            <div class="tri-group" id="c7-grp">
               <label><input type="radio" name="c7" value="oui"/> Oui</label>
               <label><input type="radio" name="c7" value="non"/> Non</label>
+              <label><input type="radio" name="c7" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c7_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c7_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c8">
+        <div class="criteria-item" data-crit="c8">
           <div class="criteria-top">
-            <p><strong>Zones protégées</strong> et bâtiments classés ou à l'inventaire respectés (Loi Blondel, etc.).</p>
-            <div class="radio-group">
+            <p>La pose du coffret n'empiète pas sur des zones protégées ou des bâtiments classés à l'inventaire du DPS.</p>
+            <div class="tri-group" id="c8-grp">
               <label><input type="radio" name="c8" value="oui"/> Oui</label>
               <label><input type="radio" name="c8" value="non"/> Non</label>
+              <label><input type="radio" name="c8" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c8_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c8_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c9">
+        <div class="criteria-item" data-crit="c9">
           <div class="criteria-top">
-            <p><strong>Éviter haies, espaces verts, clôtures de jardins, massifs plantés.</strong></p>
-            <div class="radio-group">
+            <p>La pose du coffret évite une haie, un espace vert, une clôture ou des massifs plantés.</p>
+            <div class="tri-group" id="c9-grp">
               <label><input type="radio" name="c9" value="oui"/> Oui</label>
               <label><input type="radio" name="c9" value="non"/> Non</label>
+              <label><input type="radio" name="c9" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c9_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c9_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c10">
+        <div class="criteria-item" data-crit="c10">
           <div class="criteria-top">
-            <p><strong>Arrêts de transports publics</strong> évités — zones PMR, zones d'attente et passages vérifiés.</p>
-            <div class="radio-group">
+            <p>La pose du coffret n'entrave pas de zones PMR, de zones d'attente — les passages sont vérifiés.</p>
+            <div class="tri-group" id="c10-grp">
               <label><input type="radio" name="c10" value="oui"/> Oui</label>
               <label><input type="radio" name="c10" value="non"/> Non</label>
+              <label><input type="radio" name="c10" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c10_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c10_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
-        <div class="criteria-item" data-criteria="c11">
+        <div class="criteria-item" data-crit="c11">
           <div class="criteria-top">
-            <p><strong>Accès aux sorties de secours</strong> non restreints.</p>
-            <div class="radio-group">
+            <p>La pose du coffret ne restreint pas les accès de secours.</p>
+            <div class="tri-group" id="c11-grp">
               <label><input type="radio" name="c11" value="oui"/> Oui</label>
               <label><input type="radio" name="c11" value="non"/> Non</label>
+              <label><input type="radio" name="c11" value="na"/> Ne s'applique pas</label>
             </div>
           </div>
-          <div class="criteria-justify">
-            <label>Justification <span class="req">*</span></label>
-            <textarea name="c11_justif" placeholder="Justifier la réponse…"></textarea>
-            <span class="field-error" style="display:none">La réponse et la justification sont obligatoires.</span>
+          <div class="criteria-bottom">
+            <label>Commentaire</label>
+            <textarea name="c11_com" placeholder="Commentaire éventuel…"></textarea>
+            <span class="field-error">Veuillez sélectionner une réponse.</span>
           </div>
         </div>
 
@@ -495,17 +528,17 @@
     <div class="section-head"><span class="dot"></span>Avis du service AGCM</div>
     <div class="section-body">
       <div class="grid-2">
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Responsable consulté AGCM <span class="req">*</span></label>
           <input type="text" name="agcm_responsable" placeholder="Prénom Nom"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Date de consultation <span class="req">*</span></label>
           <input type="date" name="agcm_date"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field span-2" data-required-radio="agcm_avis">
+        <div class="field span-2" data-req-radio="agcm_avis">
           <label>Avis AGCM <span class="req">*</span></label>
           <div class="radio-group">
             <label><input type="radio" name="agcm_avis" value="favorable"/> ✓ Favorable</label>
@@ -527,17 +560,17 @@
     <div class="section-head"><span class="dot"></span>Préavis SEP</div>
     <div class="section-body">
       <div class="grid-2">
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Responsable consulté SEP <span class="req">*</span></label>
           <input type="text" name="sep_responsable" placeholder="Prénom Nom"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Date de consultation <span class="req">*</span></label>
           <input type="date" name="sep_date"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required-radio="sms_cmns">
+        <div class="field" data-req-radio="sms_cmns">
           <label>Consultation SMS ou CMNS nécessaire ? <span class="req">*</span></label>
           <div class="radio-group">
             <label><input type="radio" name="sms_cmns" value="oui"/> Oui</label>
@@ -549,7 +582,7 @@
           <label>Décision SMS / CMNS</label>
           <input type="text" name="sms_decision" placeholder="Référence décision"/>
         </div>
-        <div class="field" data-required-radio="seve">
+        <div class="field" data-req-radio="seve">
           <label>Consultation SEVE nécessaire ? <span class="req">*</span></label>
           <div class="radio-group">
             <label><input type="radio" name="seve" value="oui"/> Oui</label>
@@ -561,7 +594,7 @@
           <label>Décision SEVE</label>
           <input type="text" name="seve_decision" placeholder="Référence décision"/>
         </div>
-        <div class="field span-2" data-required-radio="sep_avis">
+        <div class="field span-2" data-req-radio="sep_avis">
           <label>Avis SEP <span class="req">*</span></label>
           <div class="radio-group">
             <label><input type="radio" name="sep_avis" value="favorable"/> ✓ Favorable</label>
@@ -582,29 +615,29 @@
   <div class="section">
     <div class="section-head"><span class="dot"></span>Synthèse et décision finale</div>
     <div class="section-body">
-      <div class="field" style="margin-bottom:16px" data-required>
+      <div class="field" style="margin-bottom:14px" data-req>
         <label>Synthèse <span class="req">*</span></label>
         <textarea name="synthese" rows="3" placeholder="Synthèse automatique ou saisie manuelle…"></textarea>
-        <span class="field-error">Ce champ est obligatoire.</span>
+        <span class="field-error">Champ obligatoire.</span>
       </div>
-      <div class="field" style="margin-bottom:16px">
+      <div class="field" style="margin-bottom:14px">
         <label>Conditions cumulées</label>
         <textarea name="conditions_cumulees" rows="3" placeholder="Conditions cumulées issues des différents avis…"></textarea>
       </div>
-      <div class="field" data-required-radio="decision">
+      <div class="field" data-req-radio="decision">
         <label>Décision finale <span class="req">*</span></label>
         <div class="decision-grid">
           <div class="decision-card">
             <input type="radio" name="decision" value="autorisee" id="d1"/>
-            <label for="d1" style="cursor:pointer;font-size:13px;font-weight:600;color:var(--green);text-transform:none;letter-spacing:0">✓ Pose autorisée AGCM</label>
+            <label for="d1" class="dc-label dc-auth">✓ Pose autorisée AGCM</label>
           </div>
           <div class="decision-card">
             <input type="radio" name="decision" value="conditions" id="d2"/>
-            <label for="d2" style="cursor:pointer;font-size:13px;font-weight:600;color:var(--accent);text-transform:none;letter-spacing:0">⚠ Pose autorisée sous conditions</label>
+            <label for="d2" class="dc-label dc-cond">⚠ Pose autorisée sous conditions</label>
           </div>
           <div class="decision-card">
             <input type="radio" name="decision" value="refusee" id="d3"/>
-            <label for="d3" style="cursor:pointer;font-size:13px;font-weight:600;color:var(--red);text-transform:none;letter-spacing:0">✗ Pose refusée</label>
+            <label for="d3" class="dc-label dc-ref">✗ Pose refusée</label>
           </div>
         </div>
         <span class="field-error">Veuillez choisir une décision.</span>
@@ -617,21 +650,20 @@
     <div class="section-head"><span class="dot"></span>Signature</div>
     <div class="section-body">
       <div class="grid-2">
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Signataire AGCM <span class="req">*</span></label>
           <input type="text" name="signataire" placeholder="Prénom Nom"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
-        <div class="field" data-required>
+        <div class="field" data-req>
           <label>Date de signature <span class="req">*</span></label>
           <input type="date" name="date_signature"/>
-          <span class="field-error">Ce champ est obligatoire.</span>
+          <span class="field-error">Champ obligatoire.</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
   <div class="form-footer">
     <button type="reset">Réinitialiser</button>
     <button type="submit">Soumettre la demande</button>
@@ -642,29 +674,53 @@
 </main>
 
 <script>
-// ── Domaine public lock ──
-const dpRadios = document.querySelectorAll('[name="domaine_public"]');
-const banner   = document.getElementById('form-blocked-banner');
-const formBody = document.getElementById('form-body');
-const dpGroup  = document.getElementById('domaine-public-group');
-const dpError  = document.getElementById('domaine-public-error');
+// ── Domaine public lock ──────────────────────────────
+const dpRadios  = document.querySelectorAll('[name="domaine_public"]');
+const banner    = document.getElementById('form-blocked-banner');
+const formBody  = document.getElementById('form-body');
+const dpGroup   = document.getElementById('dp-group');
+const dpError   = document.getElementById('dp-error');
+
+function lockForm(lock) {
+  if (lock) {
+    banner.classList.add('visible');
+    // disable everything except domaine_public radios
+    formBody.querySelectorAll('input:not([name="domaine_public"]), textarea, select, button').forEach(el => el.disabled = true);
+    formBody.style.position = 'relative';
+    // visual overlay
+    let ov = document.getElementById('form-overlay');
+    if (!ov) {
+      ov = document.createElement('div');
+      ov.id = 'form-overlay';
+      ov.style.cssText = 'position:absolute;inset:0;background:rgba(255,255,255,0.6);z-index:10;pointer-events:none;';
+      formBody.appendChild(ov);
+    }
+    ov.style.display = 'block';
+    // grey out sections visually (keep dp section readable)
+    document.querySelectorAll('.section').forEach(s => { s.style.opacity = '0.35'; s.style.filter = 'grayscale(1)'; });
+    // keep first section (admin) readable for the dp field
+    document.querySelectorAll('.section')[0].style.opacity = '1';
+    document.querySelectorAll('.section')[0].style.filter = 'none';
+  } else {
+    banner.classList.remove('visible');
+    formBody.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = false);
+    document.querySelector('[name="date_echeance"]').readOnly = true;
+    const ov = document.getElementById('form-overlay');
+    if (ov) ov.style.display = 'none';
+    document.querySelectorAll('.section').forEach(s => { s.style.opacity = ''; s.style.filter = ''; });
+  }
+}
 
 dpRadios.forEach(r => r.addEventListener('change', () => {
   if (r.value === 'non' && r.checked) {
-    banner.classList.add('visible');
-    formBody.classList.add('locked');
-    // disable all inputs except the domaine_public radios
-    formBody.querySelectorAll('input:not([name="domaine_public"]), textarea, select, button').forEach(el => el.disabled = true);
+    lockForm(true);
   } else if (r.value === 'oui' && r.checked) {
-    banner.classList.remove('visible');
-    formBody.classList.remove('locked');
-    formBody.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = false);
-    document.querySelector('[name="date_echeance"]').readOnly = true;
+    lockForm(false);
   }
 }));
 
-// ── Échéance auto ──
-document.querySelector('[name="date_depot"]').addEventListener('change', function() {
+// ── Échéance auto ───────────────────────────────────
+document.querySelector('[name="date_depot"]').addEventListener('change', function () {
   if (this.value) {
     const d = new Date(this.value);
     d.setMonth(d.getMonth() + 1);
@@ -672,162 +728,128 @@ document.querySelector('[name="date_depot"]').addEventListener('change', functio
   }
 });
 
-// ── PDF upload ──
+// ── PDF upload ──────────────────────────────────────
 const uploadZone  = document.getElementById('upload-zone');
 const fichesInput = document.getElementById('fiches-input');
 const fileList    = document.getElementById('file-list');
 let uploadedFiles = [];
 
-function formatSize(bytes) {
-  if (bytes < 1024) return bytes + ' o';
-  if (bytes < 1024*1024) return (bytes/1024).toFixed(1) + ' Ko';
-  return (bytes/(1024*1024)).toFixed(1) + ' Mo';
+function fmtSize(b) {
+  if (b < 1024) return b + ' o';
+  if (b < 1048576) return (b/1024).toFixed(1) + ' Ko';
+  return (b/1048576).toFixed(1) + ' Mo';
 }
-
 function renderFiles() {
   fileList.innerHTML = '';
   uploadedFiles.forEach((f, i) => {
-    const item = document.createElement('div');
-    item.className = 'file-item';
-    item.innerHTML = `
-      <span class="file-icon">📄</span>
-      <span class="file-name" title="${f.name}">${f.name}</span>
-      <span class="file-size">${formatSize(f.size)}</span>
-      <button type="button" class="file-remove" data-i="${i}" title="Supprimer">✕</button>
-    `;
-    fileList.appendChild(item);
+    const el = document.createElement('div');
+    el.className = 'file-item';
+    el.innerHTML = `<span class="fi-icon">📄</span><span class="fi-name" title="${f.name}">${f.name}</span><span class="fi-size">${fmtSize(f.size)}</span><button type="button" class="fi-rm" data-i="${i}">✕</button>`;
+    fileList.appendChild(el);
   });
-  fileList.querySelectorAll('.file-remove').forEach(btn => {
-    btn.addEventListener('click', () => {
-      uploadedFiles.splice(+btn.dataset.i, 1);
-      renderFiles();
-    });
-  });
+  fileList.querySelectorAll('.fi-rm').forEach(btn => btn.addEventListener('click', () => {
+    uploadedFiles.splice(+btn.dataset.i, 1); renderFiles();
+  }));
 }
-
-fichesInput.addEventListener('change', function() {
-  Array.from(this.files).forEach(f => {
-    if (f.type === 'application/pdf' || f.name.endsWith('.pdf')) {
-      if (!uploadedFiles.find(x => x.name === f.name && x.size === f.size))
-        uploadedFiles.push(f);
-    }
+function addFiles(files) {
+  Array.from(files).forEach(f => {
+    if ((f.type === 'application/pdf' || f.name.endsWith('.pdf')) && !uploadedFiles.find(x => x.name === f.name && x.size === f.size))
+      uploadedFiles.push(f);
   });
   renderFiles();
-  this.value = '';
-});
-
+}
+fichesInput.addEventListener('change', function () { addFiles(this.files); this.value = ''; });
 uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
 uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
-uploadZone.addEventListener('drop', e => {
-  e.preventDefault();
-  uploadZone.classList.remove('drag-over');
-  Array.from(e.dataTransfer.files).forEach(f => {
-    if (f.type === 'application/pdf' || f.name.endsWith('.pdf'))
-      if (!uploadedFiles.find(x => x.name === f.name && x.size === f.size))
-        uploadedFiles.push(f);
-  });
-  renderFiles();
-});
+uploadZone.addEventListener('drop', e => { e.preventDefault(); uploadZone.classList.remove('drag-over'); addFiles(e.dataTransfer.files); });
 
-// ── Validation ──
+// ── Validation ──────────────────────────────────────
+function showErr(el, show) {
+  const err = el.querySelector('.field-error');
+  if (show) { el.classList.add('invalid'); if (err) err.style.display = 'block'; }
+  else       { el.classList.remove('invalid'); if (err) err.style.display = ''; }
+}
+function showGroupErr(grpEl, errEl, show) {
+  if (show) { grpEl.classList.add('invalid-group'); if (errEl) errEl.style.display = 'block'; }
+  else       { grpEl.classList.remove('invalid-group'); if (errEl) errEl.style.display = ''; }
+}
+
 function validateForm() {
   let valid = true;
 
-  // Domaine public must be selected
+  // Domaine public
   const dpVal = document.querySelector('[name="domaine_public"]:checked');
-  if (!dpVal) {
-    dpGroup.classList.add('invalid-group');
-    dpError.style.display = 'block';
-    valid = false;
-  } else {
-    dpGroup.classList.remove('invalid-group');
-    dpError.style.display = 'none';
-  }
+  if (!dpVal) { showGroupErr(dpGroup, dpError, true); valid = false; }
+  else        { showGroupErr(dpGroup, dpError, false); }
 
-  // Simple text/date/email/tel fields
-  document.querySelectorAll('[data-required]').forEach(field => {
+  // Text / date / email inputs
+  document.querySelectorAll('[data-req]').forEach(field => {
     const inp = field.querySelector('input, textarea, select');
-    if (!inp || !inp.value.trim()) {
-      field.classList.add('invalid');
-      valid = false;
-    } else {
-      field.classList.remove('invalid');
-    }
+    const empty = !inp || !inp.value.trim();
+    showErr(field, empty);
+    if (empty) valid = false;
   });
 
-  // Radio groups
-  document.querySelectorAll('[data-required-radio]').forEach(field => {
-    const name = field.dataset.requiredRadio;
+  // Radio groups (generic)
+  document.querySelectorAll('[data-req-radio]').forEach(field => {
+    const name = field.dataset.reqRadio;
     const checked = document.querySelector(`[name="${name}"]:checked`);
-    const errorEl = field.querySelector('.field-error');
-    const rg = field.querySelector('.radio-group');
-    if (!checked) {
-      if (rg) rg.classList.add('invalid-group');
-      if (errorEl) errorEl.style.display = 'block';
-      valid = false;
-    } else {
-      if (rg) rg.classList.remove('invalid-group');
-      if (errorEl) errorEl.style.display = 'none';
-    }
+    const grp = field.querySelector('.radio-group');
+    const err = field.querySelector('.field-error');
+    if (!checked) { if (grp) grp.classList.add('invalid-group'); if (err) err.style.display = 'block'; valid = false; }
+    else          { if (grp) grp.classList.remove('invalid-group'); if (err) err.style.display = ''; }
   });
 
   // Checkbox groups
-  document.querySelectorAll('[data-required-check]').forEach(field => {
-    const name = field.dataset.requiredCheck;
-    const checked = document.querySelectorAll(`[name="${name}"]:checked`);
-    const errorEl = document.getElementById(name + '-error');
-    const cg = document.getElementById(name + '-group');
-    if (!checked.length) {
-      if (cg) cg.classList.add('invalid-group');
-      if (errorEl) errorEl.style.display = 'block';
-      valid = false;
-    } else {
-      if (cg) cg.classList.remove('invalid-group');
-      if (errorEl) errorEl.style.display = 'none';
-    }
+  document.querySelectorAll('[data-req-check]').forEach(field => {
+    const name = field.dataset.reqCheck;
+    const any = document.querySelectorAll(`[name="${name}"]:checked`).length > 0;
+    const grp = document.getElementById(name + '-group');
+    const err = document.getElementById(name + '-error');
+    if (!any) { if (grp) grp.classList.add('invalid-group'); if (err) err.style.display = 'block'; valid = false; }
+    else      { if (grp) grp.classList.remove('invalid-group'); if (err) err.style.display = ''; }
   });
 
-  // Criteria: each needs radio + justification text
+  // Criteria: each radio is mandatory (comment optional)
   document.querySelectorAll('.criteria-item').forEach(item => {
-    const key = item.dataset.criteria;
+    const key  = item.dataset.crit;
     const radio = document.querySelector(`[name="${key}"]:checked`);
-    const justif = item.querySelector(`[name="${key}_justif"]`);
-    const errorEl = item.querySelector('.field-error');
-    if (!radio || !justif || !justif.value.trim()) {
-      item.style.border = '2px solid var(--red)';
-      if (errorEl) errorEl.style.display = 'block';
+    const grp  = document.getElementById(key + '-grp');
+    const err  = item.querySelector('.criteria-bottom .field-error');
+    if (!radio) {
+      if (grp) grp.classList.add('invalid-group');
+      if (err) err.style.display = 'block';
+      item.style.outline = '2px solid var(--orange)';
       valid = false;
     } else {
-      item.style.border = '';
-      if (errorEl) errorEl.style.display = 'none';
+      if (grp) grp.classList.remove('invalid-group');
+      if (err) err.style.display = '';
+      item.style.outline = '';
     }
   });
 
   return valid;
 }
 
-document.getElementById('coffretForm').addEventListener('submit', function(e) {
+document.getElementById('coffretForm').addEventListener('submit', function (e) {
   e.preventDefault();
   if (!validateForm()) {
-    const firstErr = document.querySelector('.field.invalid, .invalid-group, .criteria-item[style*="border"]');
-    if (firstErr) firstErr.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    const first = document.querySelector('.invalid, .invalid-group, .criteria-item[style*="outline"]');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
     return;
   }
-  const data = Object.fromEntries(new FormData(this).entries());
-  alert('✅ Demande enregistrée avec succès.\nN° dossier : ' + (data.dossier_num || '(non renseigné)'));
+  alert('✅ Demande enregistrée avec succès.\nN° dossier : ' + (document.querySelector('[name="dossier_num"]').value || '(non renseigné)'));
 });
 
 document.getElementById('coffretForm').addEventListener('reset', () => {
-  banner.classList.remove('visible');
-  formBody.classList.remove('locked');
-  formBody.querySelectorAll('input, textarea, select, button').forEach(el => el.disabled = false);
-  document.querySelector('[name="date_echeance"]').readOnly = true;
-  uploadedFiles = [];
-  fileList.innerHTML = '';
+  lockForm(false);
+  dpRadios.forEach(r => r.checked = false);
+  uploadedFiles = []; fileList.innerHTML = '';
   document.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
   document.querySelectorAll('.invalid-group').forEach(el => el.classList.remove('invalid-group'));
   document.querySelectorAll('.field-error').forEach(el => el.style.display = '');
-  document.querySelectorAll('.criteria-item').forEach(el => el.style.border = '');
+  document.querySelectorAll('.criteria-item').forEach(el => el.style.outline = '');
+  dpError.style.display = '';
 });
 </script>
 </body>
